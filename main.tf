@@ -12,7 +12,7 @@
 #------------------------------------------------------------------------------
 module "aws_cw_logs" {
   source  = "cn-terraform/cloudwatch-logs/aws"
-  version = "1.0.12"
+  version = "1.0.13"
   # source  = "../terraform-aws-cloudwatch-logs"
 
   create_kms_key              = var.create_kms_key
@@ -71,7 +71,7 @@ module "aws_cw_logs" {
 #------------------------------------------------------------------------------
 module "ecs_fargate" {
   source  = "cn-terraform/ecs-fargate/aws"
-  version = "2.0.55"
+  version = "2.0.58"
   # source = "../terraform-aws-ecs-fargate"
 
   name_prefix                  = "${var.name_prefix}-nexus"
@@ -163,7 +163,7 @@ module "acm" {
   count = var.configure_loadbalancer_ssl.enable_ssl ? 1 : 0
 
   source  = "terraform-aws-modules/acm/aws"
-  version = "5.1.1"
+  version = "6.0.0"
 
   domain_name = var.configure_loadbalancer_ssl.https_record_domain_name
   zone_id     = var.configure_loadbalancer_ssl.dns_zone_id
